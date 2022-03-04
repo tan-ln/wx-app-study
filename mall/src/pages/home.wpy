@@ -1,0 +1,54 @@
+<style lang="less"></style>
+
+<template>
+    <view></view>
+    <!-- bombscreen自定义标签 
+        组件可以将一组功能封装一个 component 里，
+        并且可以在页面上以自定义标签的形式引入 -->
+    
+    <!-- 首页列表 分组件 -->
+    <!-- 列表 -->
+    <discover></discover>
+    <!-- 底部加载更多提示 -->       
+    <!-- 传参 message="load more ..." -->
+    <!-- :message='mes' 将mes放在data中 -->
+    <!-- 同步改变 .sync props动态更新 -->
+    <bottomLoadMore :message='mes' :show.sync='showLoading'></bottomLoadMore>
+    <!-- 组件暂无数据的提示 -->
+    <placeholder></placeholder>
+    <!-- 弹出广告 -->
+    <bombscreen></bombscreen>
+</template>
+
+<script>
+    // wepy 在本地的 node_modules/ 下（其实也在全局，如果全局安装了 wepy）
+    import wepy from 'wepy'
+    // 将页面换一个视角
+    // 组件视角
+    import Bomnbscreen from '@/components/bomb_screen'
+    import Placeholder from '@/components/placeholder'
+    import BottomLoadMore from '@/components/bottom_load_more'
+    import Discover from '@/components/discover'
+
+    // 单页面组件
+    export default class Home extends wepy.page {
+        // es6 class 内部，不是 json 不使用 : 
+        data = {
+            showLoading: false,
+            mes: 'loading more'
+        }
+        // 声明页面地组件构成
+        // 好处 多人协作 将复杂度细化 可读性更强
+        components = {
+            // 标签名: 组件名
+            bombscreen: Bomnbscreen,
+            placeholder: Placeholder,
+            bottomLoadMore: BottomLoadMore,
+            discover: Discover
+        }
+
+        onLoad() {
+            this.showLoading = true
+        }
+    }
+</script>

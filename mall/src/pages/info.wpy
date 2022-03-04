@@ -1,0 +1,18 @@
+<style lang="less"></style>
+
+<template>
+    <view></view>
+</template>
+
+<script>
+    // wepy 在本地的 node_modules/ 下（其实也在全局，如果全局安装了 wepy）
+    import wepy from 'wepy'
+
+    // 单页面组件
+    export default class Info extends wepy.page {
+        // es6 class 内部，不是 json 不使用 : 
+        data = {
+
+        }
+    }
+</script>

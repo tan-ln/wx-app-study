@@ -1,0 +1,103 @@
+<template>
+    <view class="authorize-container">
+      <image class="authorize-icon" src="../images/authorize.png"></image>
+      <view class="auth-item">商城获取以下权限：</view>
+      <view class="auth-item">
+        获取你的公开信息（头像，昵称等）
+      </view>
+      <view class="btn-authorize">
+        <button type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">授权</button>
+      </view>
+    </view>
+  </template>
+  <script>
+    import wepy from 'wepy';
+    import api from '@/api/api';
+    // @ src/目录下
+    // 实质是解构
+    import {
+      USER_INFO,
+      USER_SPECIAL_INFO,
+      SYSTEM_INFO
+    } from '@/utils/constant' // 文件用于保存所有常量名，可以直接看到有多少，实现集中管理
+    export default class Authroize extends wepy.page {
+      config = {
+        navigationBarTitleText: '授权登录'
+      }
+      
+      async onLoad() {
+          let res = await wepy.getSetting()
+          // 如果已被授权
+          if ((res.authSetting)['scope.userInfo']) {
+              wepy.switchTab({
+                url: '/pages/home'
+              })
+          }
+      }
+  
+      // async 对于函数内部有异步操作变同步的声明
+      async onGotUserInfo(e) {
+        console.log(e)
+        if (e.detail.errMsg == 'getUserInfo:ok') {
+          // api wx.login wxpy.login 通过用户信息登录微信服务器 拿到 用户code 标识符
+          // 然而这是异步的   回调地狱写法 success: res => {}
+          // await 异步的代码变成同步的写法，执行loging完成在接下去
+          // 异步函数前需要声明 使用 async
+  
+          let res = await wepy.login()
+          console.log(res)
+          // 需要在 app.wpy construct 启用 promise
+  
+          if (res.code) {
+            // 这里也会await一下，只不过自带同步 Sync
+            // 保存 storage 不需要再让用户授权
+            // 设置为一个常量，在外部设置这个常量
+            wepy.setStorageSync(USER_INFO, e.detail.userInfo)
+            // 使用：直接定位在你的位置附近的分店
+  
+            // 大型项目中 将所有的请求 交给api模块
+            // 这个 api 文件模块负责所有的数据请求 
+            // 如 wx.request 
+            // 集中管理，可以看到所有的请求
+            // 流程： 授权 -> login(code) -> 登录(后端 sessio 处理)
+            // 在自己的服务器生成一个唯一的 (id)标识
+            let rlt = await api.wxJsCode2Session({
+              query: {
+                jsCode: res.code,
+                nickName: e.detail.userInfo.nickName
+              }
+            })
+  
+            if (rlt) {
+              let data = rlt.data
+              if (data.openid) {
+                wepy.setStorageSync(USER_SPECIAL_INFO, data.openid)
+              }
+              wepy.switchTab({
+                url: '/pages/home'
+              })
+            } else {
+              // await 等待用户确定
+              let res = await wepy.showModal({
+                title: 'appId 有误',
+                content: '授权失败',
+              })
+              if (res.confirm) {
+                wepy.switchTab({
+                  url: '/pages/home'
+                })
+              }
+            }
+          }
+        }
+      }
+  
+      data = {};
+    }
+  
+  </script>
+  <style lang="less">
+  
+  
+  </style>
+  
