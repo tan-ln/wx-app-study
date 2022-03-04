@@ -1,0 +1,65 @@
+<!--pages/vehicles/show.wxml-->
+<view class="section">
+        <view class="cover">
+          <image src="{{ entities.image }}" mode="aspectFill" />
+          <view class="content">
+            <view class="header">
+              {{ entities.header }}
+              <view class="sub-header">
+                {{ entities.sub_header }}
+              </view>
+            </view>
+            <view class="meta">{{ entities.meta.price }}</view>
+          </view>
+        </view>
+        <view class="spec">
+          <view class="item">
+            <view class="header">
+              二氧化碳排放
+            </view>
+            <view class="value">
+              <text>{{ entities.meta.carbon_dioxide }}</text>
+              克/公里
+            </view>
+          </view>
+          <view class="item">
+            <view class="header">
+              综合燃油
+            </view>
+            <view class="value">
+              <text>{{ entities.meta.fuel }}</text>
+              升/百公里
+            </view>
+          </view>
+        </view>
+        <view class="action">
+          <view class="description">{{ entities.description }}</view>
+          <button class="button primary" bindtap="testDrive">预约试驾</button>
+        </view>
+      </view>
+<swiper class="section design exterior" indicator-dots="{{true}}" circular="{{circular}}">
+    <block wx:for="{{entities.meta.exterior_design}}" wx:key="index">
+        <swiper-item>
+            <text>外观</text>
+            <view class="content">
+                <view class="header">{{item.header}}</view>
+                <view class="description">{{item.description}}</view>
+            </view>
+            <!-- mode  aspectFill 等比例缩放 -->
+            <image src="{{item.image}}" mode="aspectFill" bindtap="show_ext_PreImg" data-index="{{index}}" />
+        </swiper-item>
+    </block>
+</swiper>
+<swiper class="section design interior" indicator-dots="{{true}}" circular="{{circular}}">
+    <block wx:for="{{entities.meta.interior_design}}" wx:key="index">
+        <swiper-item>
+            <text>内饰</text>
+            <view class="content">
+                <view class="header">{{item.header}}</view>
+                <view class="description">{{item.description}}</view>
+            </view>
+            <!-- mode  aspectFill 等比例缩放 -->
+            <image src="{{item.image}}" mode="aspectFill" bindtap="show_inte_PreImg" data-index="{{index}}" />
+        </swiper-item>
+    </block>
+</swiper>

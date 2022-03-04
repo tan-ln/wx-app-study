@@ -1,0 +1,43 @@
+/* pages/stories/stories.wxss */
+.stories {
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    background: #F9F8F9;
+    width: 100%;
+}
+
+.stories .item {
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 30rpx;
+}
+
+.stories video {  
+    width: 690rpx;
+    height: calc(9 * 690rpx / 16);
+    
+}
+
+/* .stories video.img{
+
+} */
+
+.stories .content {
+    text-align: left;
+    padding: 50rpx;
+}
+
+.stories .header {
+    font-size: 45rpx;
+    font-weight: bold;
+    letter-spacing: 5rpx;
+}
+
+.stories .header:after {
+    content: "";
+    width: 80rpx;
+    height: 5rpx;
+    background: #000;
+    display: block;
+    margin: 20rpx 0 35rpx 0;
+}

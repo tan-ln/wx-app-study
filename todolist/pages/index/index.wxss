@@ -1,0 +1,176 @@
+/**index.wxss**/
+.titleBar {
+	border-bottom: 1px solid #eee;
+	padding: 0 30rpx 10rpx;
+	display: flex;
+	align-items: center;
+}
+
+.titleBar .status {
+	flex: 1;
+}
+
+/* 如果只设置一个flex，那么主元素拿到 其他子元素本身 该有的大小外的 所有空间 */
+
+.titleBar .status text {
+	display: inline;
+	/* 相对字体单位 pt */
+	font-size: 12pt;
+	color: #999;
+	padding: 10rpx -20rpx -10rpx 0;
+	margin-right: 15rpx;
+}
+
+.titleBar .status text.active {
+	color:#e42d08;
+}
+
+/* 弹出层表单 移动端屏幕小 层的概念 z-index */
+.addForm {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 99;
+	background: rgba(0, 0, 0, .4);
+}
+
+.addForm .addForm-div {
+	background: #fff;
+	padding: 30rpx;
+}
+
+.weui-input {
+	/* 相对于当前的 font-size */
+	height: 2.58823529em;
+	min-height: 2.58823529em;
+	line-height: 2.58823529em;
+}
+
+.addForm .addForm-div .weui-input{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 5rpx 20rpx;
+	font-size: 12pt;
+	margin-bottom: 30rpx;
+}
+
+.weui-btn:first-child {
+	margin-top: 0;
+}
+
+.addForm .addForm-div .addForm-btn button {
+	margin: 15rpx;
+}
+
+.hide {
+	display: none;
+}
+
+
+.lists {
+	height: 0;
+	/* 除去 titleBar 的所有高度 */
+	flex: 1;
+	/* padding-top: 15rpx; */
+	padding-bottom: 10rpx;
+	position: relative;
+}
+
+.lists .item {
+	border-bottom: 1px dotted #eee;
+	position: relative;
+	overflow: hidden;
+	background-color: #F9F9F9;
+}
+
+.lists .item .content {
+	display: flex;
+	padding: 15rpx 30rpx;
+	align-items: center;
+	position: relative;
+	left: 0;
+	width: 694rpx;
+	background: #fff;
+	z-index: 1;
+}
+
+.lists .item icon {
+	padding: 15rpx 0 10rpx;
+}
+
+icon {
+	vertical-align: middle;
+}
+
+.lists .item time {
+	font-size: 9pt;
+	color: #999999;
+}
+
+.lists .item text {
+	font-size: 11pt;
+	color: #444444;
+	padding: 0 10rpx;
+}
+
+.lists .item .title {
+	flex: 1;
+	overflow: hidden;
+	/* 文本超出一行不换行  */
+	white-space: nowrap;
+	/* 文本超出部分 ... */
+	text-overflow: ellipsis;
+	/* background: rgb(231, 36, 36); */
+}
+
+.lists .item .title.finished {
+	text-decoration: line-through;
+}
+
+.lists .item .del {
+	position: absolute;
+	right: 0;
+	top: 17rpx;
+}
+
+.moveLeft {
+	animation: moveLeft linear 0.5s forwards;
+}
+
+.moveRight {
+	animation: moveRight linear 0.5s forwards;
+}
+
+.nodata {
+	padding: 30rpx;
+	color: #999;
+	font-size: 11pt;
+	text-align: center;
+	font-style: italic;
+}
+
+@keyframes moveLeft {
+	0% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-70rpx);
+	}
+	100% {
+		transform: translateX(-140rpx);
+	}
+}
+
+@keyframes moveRight {
+	0% {
+		transform: translateX(-140rpx);
+	}
+	50% {
+		transform: translateX(-70rpx);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}

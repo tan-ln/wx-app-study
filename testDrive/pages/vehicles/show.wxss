@@ -1,0 +1,67 @@
+/* pages/vehicles/show.wxss */
+.info {
+    height: 100vh;
+    background: #F9F8F9;
+}
+.info image {
+    position: relative;
+}
+
+.info .white {
+    position: absolute;
+    color: #fff;
+}
+
+.info .header {
+    bottom: 55rpx;
+    left: 30rpx;
+    font-size: 40rpx;
+    letter-spacing: 5rpx;
+}
+
+.info .sub-header {
+    bottom: 15rpx;
+    left: 30rpx;
+    letter-spacing: 3rpx;
+}
+
+.info .price {
+    bottom: 15rpx;
+    right: 30rpx;
+}
+
+.info .meta {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.info .meta .left,.right {
+    flex: 1;
+    padding: 50rpx 0 50rpx 50rpx;
+    border: 1px solid #EFEFEF;
+    word-spacing: 3rpx;
+}
+
+.info .meta .CO2,.fuel {
+    font-size: 70rpx;
+}
+
+.info .meta text {
+    font-size: 28rpx;
+}
+
+.info .description {
+    text-align: center;
+    padding-top: 100rpx;
+    font-size: 36rpx;
+    overflow: hidden;
+    height: 100rpx;
+}
+
+.button {
+    left: 50%;
+    bottom: -60rpx;
+    transform: translate(-50%, 0);
+}

@@ -1,0 +1,43 @@
+.card .item {
+    padding: 30rpx 30rpx 0;
+    background: #F9F8F9;
+}
+.card .content.left {
+    text-align: left;
+    padding-left: 50rpx;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.card .content .header {
+    font-size: 50rpx;
+    font-weight: bold;
+    padding: 30rpx 0 10rpx 0;
+    letter-spacing: 5rpx;
+}
+
+.card .content .sub-header {
+    font-size: 30rpx;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.card .content .sub-header:after {
+    content: "";
+    width: 100rpx;
+    height: 5rpx;
+    background: #000;
+    display: block;
+    margin: 20rpx 0 35rpx 0;
+}
+
+.card .content .description {
+    font-family: sans-serif;
+    word-spacing: 3px;
+    padding: 10rpx 0;
+}
+
+.card .content .price {
+    padding: 10rpx 0 100rpx;
+}

@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<!-- swiper 滑屏 -->
+<!-- indicator-dots 显示面板指示点     circular 衔接滑动 -->
+<scroll-view scroll-y>
+	<swiper class="section hero white" indicator-dots="{{true}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+	 circular="{{circular}}">
+		<block wx:for="{{slides}}" wx:key="id">
+			<swiper-item>
+				<!-- mode  aspectFill 等比例缩放 -->
+				<image src="{{item.image}}" mode="aspectFill" />
+				<view class="content centered">
+					<view class="sub-header">{{item.sub_header}}</view>
+					<view class="header">{{item.header}}</view>
+					<view class="description">{{item.description}}</view>
+					<view class="action">
+						<button class="button" bindtap="testDrive">预约试驾</button>
+						<button class="button primary" bindtap="readMore" data-id="{{item.id}}">了解更多</button>
+					</view>
+				</view>
+			</swiper-item>
+		</block>
+	</swiper>
+	
+	<view class="card">
+		<view wx:for="{{entities}}" wx:key="id">
+			<view class="item" bindtap="showMeta" data-id="{{item.id}}">
+				<image src="{{item.image}}" mode="aspectFill" />
+				<view class="content left">
+					<view class="header">{{item.header}}</view>
+					<view class="sub-header">{{item.sub_header}}</view>
+					<view class="description">{{item.description}}</view>
+					<view class="price">{{item.meta.price}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>

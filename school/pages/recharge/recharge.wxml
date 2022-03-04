@@ -1,0 +1,34 @@
+<!-- <view class="weui-cells">
+    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">默认寝室</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">研一930</view>
+    </navigator>
+</view>
+<radio-group class="radio-group" bindchange="radioChange">
+    <label class="radio" wx:for="{{items}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+    </label>
+</radio-group>
+<view class="weui-btn-area">
+    <button class="weui-btn" type="primary">确定</button>
+</view> -->
+
+<import src="../../templates/template.wxml" />
+<view class="weui-cells">
+    <navigator class="weui-cell" hover-class="weui-cell_active" url="">
+        <template is="dormInfo" data="{{...dorm}}"></template>
+    </navigator>
+    <view class="weui-cell amount-list">
+        <radio-group class="weui-flex" bindchange="bindAmountChange">
+            <label wx:for="{{amounts}}" wx:key="{{index}}">
+                <radio class="weui-check" value="{{item.value}}" />
+                <view class="weui-check__label {{item.checked?'checked':''}}">
+                    <text>￥{{item.value}}</text>
+                </view>
+            </label>
+        </radio-group>
+    </view>
+</view>
+<view class="weui-btn-area">
+    <button class="weui-btn" type="primary" disabled="{{btn_disabled}}" bindtap="bindSubmit">确定</button>
+</view>

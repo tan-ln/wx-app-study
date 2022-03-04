@@ -1,0 +1,19 @@
+<!--pages/stories/stories.wxml-->
+
+<scroll-view class="stories" scroll-y="true" style="width: 100%">
+    <view wx:for="{{stories}}" wx:key="id">
+        <view class="item">
+            <view class="videoPlay" bindtap="videoPlay">
+                <video src="{{item.video}}" binderror="listenerVideo" autoplay="{{autoplay}}" custom-cache="{{false}}" poster="{{item.image}}" controls>
+                    <!-- <cover-view class="controls">
+                        <cover-image class="img" src="{{item.image}}" />
+                    </cover-view> -->
+                </video>
+            </view>
+            <view class="content">
+                <view class="header">{{item.header}}</view>
+                <view class="description">{{item.description}}</view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

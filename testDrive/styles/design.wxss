@@ -1,0 +1,50 @@
+/* exterior_design & interior_design */
+.design {
+    text-align: center;
+    padding-top: 80rpx;
+    /* box-sizing: border-box; */
+}
+
+.design.exterior {
+    background: #fff;
+}
+
+.design.interior {
+    background: #F9F8F9;
+}
+
+.design text {
+    font-size: 28rpx;
+    text-transform: uppercase;
+    letter-spacing: 6rpx;
+    margin-bottom: 8px;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.design .content {
+    /* font-size: 35rpx;
+    padding: 20rpx 70rpx; */
+    display: flex;
+    flex-direction: column;
+    height: 38.2vh;
+    padding-top: 10%;
+    text-align: center;
+}
+
+.design .content .header {
+    font-size: 48rpx;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.design .content .description {
+    color: #000;
+    /* padding-bottom: 50rpx; */
+    /* height: 300rpx; */
+    padding: 0 12%;
+
+}
+
+.design image {
+    height: 41.8vh;
+  }

@@ -1,0 +1,17 @@
+/**app.wxss**/
+@import './weui.wxss';
+
+.weui-msg .weui-msg__icon-area image{
+    width: 300rpx;
+    height: 300rpx;
+}
+.weui-msg .weui-msg__text-area .weui-msg__title {
+    font-weight: 600;
+}
+
+.weui-msg .weui-msg__text-area .weui-msg__money {
+    font-size: 30pt;
+    font-weight: bold;
+    flood-color: #000;
+    font-family: "微软雅黑";
+}

@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="titleBar">
+		<div class="status">
+			<text data-status="1" class="{{status=='1'?'active':''}}" bindtap="showStatus">全部</text>
+			<text data-status="2" class="{{status=='2'?'active':''}}" bindtap="showStatus">未完成</text>
+			<text data-status="3" class="{{status=='3'?'active':''}}" bindtap="showStatus">已完成</text>
+		</div>
+		<div class="add">
+			<button class="mini-btn" size="mini" type="warn" bindtap="addTodoShow">添加</button>
+		</div>
+	</view>
+
+	<scroll-view scroll-y class="lists">
+		<block wx:if="{{lists.length < 1}}">
+			<view class="nodata">暂无数据</view>
+		</block>
+		<view class="item" wx:for="{{lists}}" wx:key="item.id">
+			<div class="content {{item.todoStyle}}" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM">
+				<icon class="icon-small" size="23" bindtap="changeTodo" data-id="{{item.id}}" type="{{item.status=='1'?'success':'circle'}}"
+				/>
+				<text class="title {{item.status == 1 ? 'finished' : ''}}">{{item.title}}</text>
+				<text class="time">{{item.time}}</text>
+			</div>
+			<button class="del mini-btn weui-btn" size="mini" type="warn" data-id="{{item.id}}" bindtap="deleteItem">删除</button>
+		</view>
+	</scroll-view>
+
+	<view class="addForm {{addFormShow?'':'hide'}}">
+		<view class="addForm-div">
+			<input type="text" class="weui-input" placeholder="请输入任务" bindinput="setInput" value="{{addText}}" focus="{{focus}}" />
+			<view class="addForm-btn">
+				<button type="warn" size="mini" bindtap="addTodo" class="weui-btn mini-btn">确定添加</button>
+				<button type="default" size="mini" bindtap="addTodoHide" class="weui-btn mini-btn">取消</button>
+			</view>
+		</view>
+	</view>
+</view>

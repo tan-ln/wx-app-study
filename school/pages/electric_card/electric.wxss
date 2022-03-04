@@ -1,0 +1,4 @@
+.weui-footer .weui-footer__text {
+    font-size: 28rpx;
+    color: rgb(31, 58, 109);
+}
