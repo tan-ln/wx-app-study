@@ -1,0 +1,189 @@
+#novel-detail_view {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-top: 30rpx;
+}
+
+.hd {
+  width: 100%;
+  height: 34vh;
+  overflow: hidden;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.hd .cover {
+  position: absolute;
+  top: -10rpx;
+  left: -20rpx;
+  right: 0;
+  height: 38vh;
+  width: 120%;
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-position: 0rpx -180rpx;
+  filter: blur(16rpx);
+  background-color: rgba(32, 32, 32, 0.35);
+  background-blend-mode: darken;
+  background-attachment: fixed;
+  z-index: -9;
+}
+
+#novel-msg_card {
+  display: flex;
+  flex-direction: row;
+}
+
+.img-left {
+  margin-right: 20rpx;
+  background-color: transparent;
+}
+
+.img-left image {
+  width: 200rpx;
+  height: 280rpx;
+  border-radius: 10rpx;
+  box-shadow: 6rpx 6rpx 0 rgba(78, 78, 78, 0.6);
+  background-color: transparent;
+}
+
+.msg-right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.msg-right view {
+  padding: 6rpx;
+}
+
+.title_bold {
+  font-weight: bold;
+  font-size: 32rpx
+}
+
+.dtl-title {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.dtl-tags van-tag{
+  padding-right: 10rpx;
+}
+
+.lastChapter, .updateTime {
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.bd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f7f8fa;
+  padding: 30rpx;
+  font-size: 28rpx;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  position: relative;
+}
+
+.list-num {
+  padding-right: 30rpx;
+}
+
+.icon-link {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -15rpx;
+}
+
+.desc {
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow: hidden;
+  font-size: 28rpx;
+  position: relative;
+}
+
+.ft {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 -2rpx 10rpx #b1b1b1;
+  font-size: 32rpx;
+}
+
+.addBook, .readNow {
+  width: 40vw;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.readNow {
+  width: 60vw;
+  color: #fff;
+  background-color: rgb(65, 125, 255);
+}
+
+#chapters {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: #f7f8fa;
+}
+
+.chapt-list {
+  height: calc(100% - 90rpx);
+  box-sizing: border-box;
+  overflow: scroll;
+  padding: 40rpx;
+  font-size: 30rpx;
+}
+
+.chapt-list .chapt:not(:last-child) {
+  padding-bottom: 30rpx;
+}
+
+.bottom-btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  z-index: 999;
+  display: flex;
+  text-align: center;
+  color: #2079ff;
+  box-shadow: 0 -4rpx 4rpx rgb(238, 238, 238);
+}
+
+.bottom-btn view {
+  flex-grow: 1;
+  font-size: 32rpx;
+}

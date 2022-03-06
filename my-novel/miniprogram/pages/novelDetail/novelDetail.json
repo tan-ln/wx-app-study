@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-icon": "../../vant/icon/index",
+    "van-tag": "../../vant/tag/index"
+  }
+}

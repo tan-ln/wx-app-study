@@ -1,0 +1,32 @@
+<view id="search-res_view">
+  <!-- 搜索框 -->
+  <van-search
+    value="{{ value }}"
+    placeholder="请输入搜索关键词"
+    use-action-slot
+    bind:search="onSearch"
+    bind:change="onChange"
+  >
+    <view slot="action" bind:tap="onSearch">搜索</view>
+  </van-search>
+  <!-- 结果列表 -->
+  <view id="search-res_list">
+    <view class="res-card" wx:for="{{ searchRes }}" wx:key="{{ item.id || item._id }}" data-id="{{ item.id || item._id }}" data-novel="{{ item }}" bindtap="onNavToDetail">
+      <view class="left">
+        <image wx:if="{{ item.cover || item.imgUrl }}" src="{{ item.cover ? coverUrl + item.cover : item.imgUrl }}" />
+        <view wx:else>暂无封面</view>
+      </view>
+      <view class="right">
+        <text class="title">{{ item.title || item.text }}</text>
+        <view>作者：<text class="author">{{ item.author }}</text>
+        </view>
+        <view class="desc">{{ item.desc || item.shortIntro }}</view>
+        <view wx:if="{{ item.lastChapter }}">最新章节：<text class="lastChapter">{{ item.lastChapter }}</text>
+        </view>
+        <view wx:if="{{ item.chapterCount }}">章节数：
+          <text>{{ item.chapterCount }}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

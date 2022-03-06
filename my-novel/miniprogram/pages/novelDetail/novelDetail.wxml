@@ -1,0 +1,44 @@
+<view id="novel-detail_view">
+  <view class="hd">
+    <view class="cover" style="background-image: url({{ novel.cover ? coverUrl + novel.cover : novel.imgUrl }})"></view>
+    <view id="novel-msg_card">
+      <view class="img-left">
+        <image wx:if="{{ novel.cover || novel.imgUrl }}" src="{{ novel.cover ? coverUrl + novel.cover : novel.imgUrl }}" />
+        <view wx:else>暂无封面</view>
+      </view>
+      <view class="msg-right">
+        <view class="dtl-title">{{ novel.title || novel.text }}</view>
+        <view class="dtl-author">{{ novel.author }}</view>
+        <view class="dtl-tags">
+          <van-tag color="rgba(255, 255, 255, 0.3)">{{ novel.cat }}</van-tag>
+          <van-tag color="rgba(255, 255, 255, 0.3)" wx:for="{{ novel.tags }}" wx:for-index="idx" wx:if="{{ idx < 6 }}" wx:key="{{ item }}">{{ item }}</van-tag>
+        </view>
+        <view class="updateTime">更新时间：{{ updated }}</view>
+        <view class="lastChapter">最新章节：{{ novel.lastChapter }}</view>
+      </view>
+    </view>
+  </view>
+  <view class="bd">
+    <view class="list" bindtap="onShowChapt">
+      <text class="title_bold">目录</text>
+      <view class="list-num" >共 {{ chaptNum }} 章<van-icon class="icon-link" name="arrow" /></view>
+    </view>
+    <view class="{{ showDesc ? 'desc' : '' }}" bindtap="onShowDesc">{{ novel.desc || novel.intro || novel.longIntro }}
+    </view>
+  </view>
+  <view class="ft">
+    <view class="addBook">加入书架</view>
+    <view class="readNow" bindtap="toReading">现在阅读</view>
+  </view>
+
+  <!-- 目录 -->
+  <view id="chapters" wx:if="{{ showChapter }}">
+    <view class="chapt-list">
+      <view class="chapt" wx:for="{{ chaptList }}" wx:key="{{ item.title }}">{{ item.title }}</view>
+    </view>
+    <view class="bottom-btn">
+      <view bindtap="hideChaptList">返回</view>
+      <view bindtap="reverseChapList">{{ reverse ? '正序' : '倒序' }}</view>
+    </view>
+  </view>
+</view>

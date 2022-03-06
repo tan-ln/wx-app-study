@@ -1,0 +1,91 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": false,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"appid": "wxfc0972e7c63b431e",
+	"projectname": "my-novel",
+	"libVersion": "2.8.1",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pages/search/search",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/searchRes/searchRes",
+					"pathName": "pages/searchRes/searchRes",
+					"query": "keyword=%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%86",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/reading/reading",
+					"pathName": "pages/reading/reading",
+					"query": "id=50865988d7a545903b000009",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/searchRes/searchRes",
+					"pathName": "pages/searchRes/searchRes",
+					"query": "keyword=朝花夕拾",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/novelDetail/novelDetail",
+					"pathName": "pages/novelDetail/novelDetail",
+					"query": "id=52e76dde321922c2120066b1",
+					"scene": null
+				}
+			]
+		}
+	}
+}

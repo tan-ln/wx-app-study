@@ -1,0 +1,50 @@
+<view id="search-page">
+  <!-- <van-sticky> -->
+    <van-search bind:tap="showSearch" disabled="true" placeholder="请输入搜索关键词" />
+  <!-- </van-sticky> -->
+  <van-grid clickable column-num="2" id="van-grid">
+    <van-grid-item
+      icon="apps-o"
+      clickable
+      link-type="navigateTo"
+      url="/pages/dashboard/index"
+      text="分类"
+    />
+    <van-grid-item
+      icon="chart-trending-o"
+      clickable
+      link-type="navigateTo"
+      url="/pages/dashboard/index"
+      text="排行"
+    />
+  </van-grid>
+  <!-- 书单推荐 -->
+  <text>书单推荐</text>
+  <van-grid gutter="{{ 10 }}" column-num="2">
+    <van-grid-item icon="photo-o" text="文字" wx:for="{{ 4 }}" />
+  </van-grid>
+</view>
+
+<!-- 搜索自动补全 -->
+<view wx:if="{{ showSearch }}" id="search-view">
+  <van-search
+    value="{{ value }}"
+    placeholder="请输入搜索关键词"
+    focus="true"
+    show-action
+    bind:search="onSearch"
+    bind:cancel="onCancel"
+    bind:change="onChange"
+  />
+  <van-cell-group>
+    <van-cell
+    wx:for="{{ searchKws }}"
+    wx:key="{{ item }}"
+    is-link
+    title="{{ item }}"
+    link-type="navigateTo"
+    url="../novelDetail/novelDetail?keyword={{ item }}"
+    icon="search" />
+  </van-cell-group>
+</view>
+

@@ -1,0 +1,20 @@
+<style lang="less">
+
+</style>
+
+<template>
+    <view>
+        
+    </view>
+</template>
+
+<script>
+    // 全局都可以引用 wepy
+    import wepy from 'wepy'
+    
+    export default class Article extends wepy.page {
+        data = {
+
+        }
+    }
+</script>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-progress": "../../vant/progress/index",
+    "van-icon": "../../vant/icon/index"
+  }
+}

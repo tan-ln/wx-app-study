@@ -1,0 +1,50 @@
+<view id="novel-reading_view">
+  <view class="reading-hd {{ showBar ? '' : 'showBar' }}">
+    <text class="book-name book-title">{{ novel.text || novel.name || novel.title }}</text>
+  </view>
+  <scroll-view  scroll-y='true' id='reading-container'>
+    <view class="reading-bd" wx:for="{{ articles }}" wx:key="{{ item.title }}">
+      <text class="chapter-title">{{ item.title }}</text>
+      <text class="chapter-content" wx:for="{{ item.content }}" wx:for-item="section" wx:key="index" bindtap="showBar">{{ section }}</text>
+    </view>
+  </scroll-view>
+  <view class="reading-ft {{ showBar ? '' : 'showBar' }}">
+    <view class="progress">
+      <text>上一章</text>
+      <view class="progress-line">
+        <van-progress percentage="50" pivot-text=" " show-pivot="false" stroke-width="4" />
+      </view>
+      <text>下一章</text>
+    </view>
+    <view class="tabList">
+      <view bindtap="onShowContList">
+        <van-icon size="20" name="orders-o" />
+        <text>目录</text>
+      </view>
+      <view>
+        <van-icon size="20" name="aim" />
+        <text>换源</text>
+      </view>
+      <view>
+        <van-icon size="20" name="bulb-o" />
+        <text>亮度</text>
+      </view>
+      <view>
+        <van-icon size="20" name="setting-o" />
+        <text>设置</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 目录 左侧隐藏 -->
+  <view id="contList" class="{{ showContList ? 'showContList' : '' }}">
+    <view class="con_hd">
+      <text class="book-name">{{ novel.text || novel.name || novel.title }}</text>
+      <view class="length-tag">共 {{ chaptList.length }} 章</view>
+    </view>
+    <view class="cont_title">目录</view>
+    <view class="list">
+      <view class="cont-item_li" wx:for="{{ chaptList }}" wx:key="{{ item.title }}" bindtap="openCurChapt" data-chapter="{{ item }}">{{ item.title }}</view>
+    </view>
+  </view>
+</view>
